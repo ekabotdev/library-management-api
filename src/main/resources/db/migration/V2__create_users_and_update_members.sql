@@ -1,0 +1,20 @@
+CREATE TABLE users(
+   id BIGINT PRIMARY KEY AUTO_INCREMENT,
+   name VARCHAR(100) NOT NULL,
+   email VARCHAR(255) NOT NULL UNIQUE,
+   password_hash VARCHAR(255) NOT NULL,
+   role VARCHAR(20) NOT NULL,
+   created_at DATETIME  NOT NULL,
+   updated_at DATETIME NOT NULL
+  );
+
+ALTER TABLE members
+DROP COLUMN name,
+DROP COLUMN  email;
+
+ALTER TABLE members
+    ADD COLUMN user_id BIGINT NOT NULL UNIQUE;
+
+ALTER TABLE members ADD CONSTRAINT fk_members_users
+    FOREIGN KEY (user_id)
+        REFERENCES users(id);

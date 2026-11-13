@@ -1,0 +1,3 @@
+admin:
+  email: ${ADMIN_EMAIL}
+  initial-password: ${ADMIN_INITIAL_PASSWORD}

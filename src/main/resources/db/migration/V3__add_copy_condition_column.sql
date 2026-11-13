@@ -1,0 +1,1 @@
+ALTER TABLE book_copies ADD COLUMN condition_status VARCHAR(20) NOT NULL;
